@@ -25,12 +25,70 @@ class xgenconf{
         }
     }
     // select by id
-    protected function selectById(string $table, int $id) {
+    protected function selectById($id,string $table) {
         try {
+            $get = $id['id'];
+            $data = intval($get);
             $conn = $this->connection();
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $conn->prepare("SELECT * FROM ".$table." where id = :id");
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindValue(':id', $data, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (\PDOException $exception) {
+            echo "query error :" . $exception->getMessage();
+        }
+    }
+
+    protected function selectByCondition(string $condition, string $table, int|float|string $value){
+        try {
+            $conn = $this->connection();
+            $conn->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+            $stmt = $conn->prepare("SELECT * FROM ".$table." where $condition = :value");
+            $stmt->bindValue(':value', $value);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (\PDOException $exception) {
+            echo "querry error :" . $exception->getMessage();
+        }
+    }
+
+    protected function selectInnerJoin(string $table1, string $table2, string $column1, string $column2){
+        try {
+            $conn = $this->connection();
+            $conn->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+            $stmt = $conn->prepare("SELECT * FROM ".$table1." INNER JOIN ".$table2." ON ".$table1.".".$column1." = ".$table2.".".$column2." GROUP BY documentation.id");
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (\PDOException $exception) {
+            echo "querry error :" . $exception->getMessage();
+        }
+    }
+
+    protected function selectCategories(string $table1, string $table2, string $column1, string $column2){
+        try {
+            $conn = $this->connection();
+            $conn->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+            $stmt = $conn->prepare("SELECT * FROM ".$table1." RIGHT JOIN ".$table2." ON ".$table1.".".$column1." = ".$table2.".".$column2." GROUP BY ".$table2.".".$column2);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (\PDOException $exception) {
+            echo "querry error :" . $exception->getMessage();
+        }
+    }
+
+    protected function selectByCategoryId(string $table, $id){
+        try {
+            $get = $id['id'];
+            $data = intval($get);
+            $conn = $this->connection();
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("SELECT * FROM ".$table." where category_id = :id");
+            $stmt->bindValue(':id', $data, PDO::PARAM_INT);
             $stmt->execute();
 
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -66,9 +124,13 @@ class xgenconf{
     }
 
     // update
-    public function update(string $table, array $data , int $recordId)
+    public function update(array $data, string $table, $recordId)
     {
         try {
+            $get = $recordId['id'];
+
+            $item = intval($get);
+
             $conn = $this->connection();
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -88,7 +150,41 @@ class xgenconf{
             }
 
             // Bind the recordId to the placeholder :record_id
-            $stmt->bindValue(":record_id", $recordId, PDO::PARAM_INT);
+            $stmt->bindValue(":record_id", $item, PDO::PARAM_INT);
+
+            $stmt->execute();
+            echo "Query successful";
+        } catch (\PDOException $exception) {
+            echo "Query error: " . $exception->getMessage();
+        }
+    }
+
+    protected function updateCategories(array $data, string $table, $recordId) {
+        try {
+            $get = $recordId['id'];
+
+            $item = intval($get);
+
+            $conn = $this->connection();
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Build the SET part of the UPDATE statement with column=value pairs
+            $setValues = [];
+            foreach ($data as $field => $value) {
+                $setValues[] = "$field = :$field";
+            }
+            $setClause = implode(", ", $setValues);
+
+            $sql = "UPDATE $table SET $setClause WHERE category_id = :record_id";
+            $stmt = $conn->prepare($sql);
+
+            // Bind each value from the $data array to the corresponding placeholder in the SQL statement
+            foreach ($data as $field => $value) {
+                $stmt->bindValue(":$field", $value);
+            }
+
+            // Bind the recordId to the placeholder :record_id
+            $stmt->bindValue(":record_id", $item, PDO::PARAM_INT);
 
             $stmt->execute();
             echo "Query successful";
@@ -98,12 +194,28 @@ class xgenconf{
     }
 
     // delete
-    protected function delete(string $table, int $id) {
+    protected function delete(string $table, $id) {
         try {
+            $get = $id['id'];
+            $data = intval($get);
             $conn = $this->connection();
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $conn->prepare("DELETE FROM ".$table." where id = :id");
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':id', $data, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (\PDOException $exception) {
+            echo "Query error: " . $exception->getMessage();
+        }
+    }
+
+    protected function deleteCategories(string $table, $id) {
+        try {
+            $get = $id['id'];
+            $data = intval($get);
+            $conn = $this->connection();
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $conn->prepare("DELETE FROM ".$table." where category_id = :id");
+            $stmt->bindParam(':id', $data, PDO::PARAM_INT);
             $stmt->execute();
         } catch (\PDOException $exception) {
             echo "Query error: " . $exception->getMessage();

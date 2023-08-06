@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
     /* Collection of helper to provide more usable function and easier to maintenance
         for file in Display folder
      */
@@ -18,3 +19,24 @@ function asset(string $path): string
 
 
 
+=======
+// helper.php
+
+function asset($path)
+{
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+    $baseUrl = $protocol . $_SERVER['HTTP_HOST'];
+    $basePath = dirname(__FILE__);
+
+    // Sanitize the URL path
+    $sanitizedPath = filter_var($path, FILTER_SANITIZE_URL);
+
+    // Combine the base URL and sanitized path
+    return rtrim($baseUrl, '/') . str_replace($basePath, '', $sanitizedPath);
+}
+
+function filter(array $config = [], )
+{
+
+}
+>>>>>>> monev1

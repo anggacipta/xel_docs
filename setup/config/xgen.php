@@ -16,14 +16,34 @@ class xgen extends xgenconf implements appXgen{
         // TODO: Implement show() method.
     }
 
-    /**
-     * @param string $table
-     * @param int $id
-     * @return mixed
-     */
-    public function showById(string $table, int $id)
+
+    public function showById(string $table, $id)
     {
-        return $this->selectById($table, $id);
+        return $this->selectById($id, $table);
+        // TODO: Implement showById() method.
+    }
+
+    public function showByCondition(string $table, string $condition, float|int|string $value)
+    {
+        return $this->selectByCondition($condition, $table, $value);
+        // TODO: Implement showByCondition() method.
+    }
+
+    public function showInnerJoin(string $table1, string $table2, string $column1, string $column2)
+    {
+        return $this->selectInnerJoin($table1, $table2, $column1, $column2);
+        // TODO: Implement showInnerJoin() method.
+    }
+
+    public function showCategories(string $table1, string $table2, string $column1, string $column2)
+    {
+        return $this->selectCategories($table1, $table2, $column1, $column2);
+        // TODO: Implement showCategories() method.
+    }
+
+    public function showCategoriesId(string $table, $id)
+    {
+        return $this->selectByCategoryId($table, $id);
         // TODO: Implement showById() method.
     }
 
@@ -33,18 +53,42 @@ class xgen extends xgenconf implements appXgen{
      * @param int $recordId
      * @return mixed
      */
-    public function renew(string $table, array $data, int $recordId)
+
+    public function renew(array $data, string $table, $recordId)
     {
         return $this->update($table,$data,$recordId);
         // TODO: Implement renew() method.
     }
 
     /**
+     * @param array $data
      * @param string $table
-     * @param int $id
+     * @param int $recordId
      * @return mixed
      */
-    public function destroy(string $table, int $id)
+    public function renewCategories(array $data, string $table, $recordId)
+    {
+        return $this->updateCategories($data,$table,$recordId);
+        // TODO: Implement renewCategories() method.
+    }
+
+    /**
+     * @param string $table
+     * @param  $id
+     * @return mixed
+     */
+    public function destroyCategories(string $table, $id)
+    {
+        return $this->deleteCategories($table,$id);
+        // TODO: Implement destroy() method.
+    }
+
+    /**
+     * @param string $table
+     * @param  $id
+     * @return mixed
+     */
+    public function destroy(string $table, $id)
     {
         return $this->delete($table,$id);
         // TODO: Implement destroy() method.
