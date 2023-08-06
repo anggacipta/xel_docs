@@ -19,7 +19,7 @@ ini_set('display_errors', 1);
         <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-9 text-center">
-                    <img src="../../public/tempSTR/logo.png" alt="xel_framework" id="hero-logo" />
+                    <img src="../../tempSTR/logo.png" alt="xel_framework" id="hero-logo" />
                     <h2>Light weight & Secure Way Framework!</h2>
                 </div>
             </div>

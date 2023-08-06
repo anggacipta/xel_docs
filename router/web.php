@@ -11,12 +11,33 @@ $router->setPrefix("web");
 //landing page
 $router->get('/', Service::class, 'index');
 
-//crud progam
-$router->get('/posts', crud::class, 'index');             // Read - Show all items
-$router->get('/show/{id}', crud::class, 'display'); // Read - Show a specific item
-$router->get('/store', crud::class, 'iface_insert'); // Show the form to create an item
-$router->post('/create', crud::class, 'insert');     // Create - Submit the form to create an item
-$router->get('/edit/{id}', crud::class, 'iface_update'); // Show the form to update an item
-$router->post('/update/{id}', crud::class, 'update'); // Update - Submit the form to update an item
-$router->post('/delete/{id}', crud::class, 'drop'); // Delete - Submit the form to delete an item
+//xel-dashboard
+$router->get('/xel', xeldocs::class, 'xeltest');
+$router->get('/xel-dash', xeldocs::class, 'xeldash');
+$router->get('/xel-dash/create', xeldocs::class, 'createXel');
+$router->post('/xel-dash/insert', xeldocs::class, 'insertXel');
+$router->get('/xel-dash/edit/{id}',  xeldocs::class, 'editXel');
+$router->post('/xel-dash/update/{id}',  xeldocs::class, 'updateXel');
+$router->post('/xel-dash/delete/{id}', xeldocs::class, 'deleteXel');
+$router->get('/xel-dash/categories', xeldocs::class, 'showCategories');
+$router->get('/xel-dash/create/categories', xeldocs::class, 'createCategories');
+$router->post('/xel-dash/insert/categories', xeldocs::class, 'insertCategories');
+$router->get('/xel-dash/edit/categories/{id}',  xeldocs::class, 'editCategories');
+$router->post('/xel-dash/update/categories/{id}',  xeldocs::class, 'updateCategories');
+$router->post('/xel-dash/delete/categories/{id}', xeldocs::class, 'deleteCategories');
+
+//composerInstallation
+$router->get('/composer-instalation',  composerinstall::class, 'showInstalation');
+$router->get('/running-app',  composerinstall::class, 'showRunningApp');
+
+//welcome
+$router->get('/credits',  welcome::class, 'showCredit');
+$router->get('/server-req',  welcome::class, 'showServerReq');
+$router->get('/welcome',  welcome::class, 'showWelcome');
+
+
+
 $router->exec();
+
+//xel
+

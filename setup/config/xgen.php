@@ -23,6 +23,30 @@ class xgen extends xgenconf implements appXgen{
         // TODO: Implement showById() method.
     }
 
+    public function showByCondition(string $table, string $condition, float|int|string $value)
+    {
+        return $this->selectByCondition($condition, $table, $value);
+        // TODO: Implement showByCondition() method.
+    }
+
+    public function showInnerJoin(string $table1, string $table2, string $column1, string $column2)
+    {
+        return $this->selectInnerJoin($table1, $table2, $column1, $column2);
+        // TODO: Implement showInnerJoin() method.
+    }
+
+    public function showCategories(string $table1, string $table2, string $column1, string $column2)
+    {
+        return $this->selectCategories($table1, $table2, $column1, $column2);
+        // TODO: Implement showCategories() method.
+    }
+
+    public function showCategoriesId(string $table, $id)
+    {
+        return $this->selectByCategoryId($table, $id);
+        // TODO: Implement showById() method.
+    }
+
     /**
      * @param array $data
      * @param string $table
@@ -33,6 +57,29 @@ class xgen extends xgenconf implements appXgen{
     {
         return $this->update($data,$table,$recordId);
         // TODO: Implement renew() method.
+    }
+
+    /**
+     * @param array $data
+     * @param string $table
+     * @param int $recordId
+     * @return mixed
+     */
+    public function renewCategories(array $data, string $table, $recordId)
+    {
+        return $this->updateCategories($data,$table,$recordId);
+        // TODO: Implement renewCategories() method.
+    }
+
+    /**
+     * @param string $table
+     * @param  $id
+     * @return mixed
+     */
+    public function destroyCategories(string $table, $id)
+    {
+        return $this->deleteCategories($table,$id);
+        // TODO: Implement destroy() method.
     }
 
     /**

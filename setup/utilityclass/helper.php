@@ -13,3 +13,8 @@ function asset($path)
     // Combine the base URL and sanitized path
     return rtrim($baseUrl, '/') . str_replace($basePath, '', $sanitizedPath);
 }
+
+function filter(array $config = [], )
+{
+
+}
