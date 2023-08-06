@@ -8,7 +8,7 @@ new setup\config\bootstrap();
 $router = new routerv1();
 $router->setPrefix("web");
 
-//landing page
+//landing page1
 $router->get('/', Service::class, 'index');
 
 //xel-dashboard
