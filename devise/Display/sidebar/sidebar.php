@@ -32,13 +32,13 @@ ini_set('display_errors', 1);
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Welcome to Xel</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="/welcome">Welcome to Xel Alpha 0.5</a>
+                            <a href="/xel/welcome">Welcome to Xel Alpha 0.5</a>
                         </li>
                         <li>
-                            <a href="/server-req">Server Requirement</a>
+                            <a href="/xel/server-req">Server Requirement</a>
                         </li>
                         <li>
-                            <a href="/credits">Credit</a>
+                            <a href="/xel/credits">Credit</a>
                         </li>
                     </ul>
                 </li>
@@ -46,10 +46,10 @@ ini_set('display_errors', 1);
                     <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Installation</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu1">
                         <li>
-                            <a href="/composer-instalation">Composer Installation</a>
+                            <a href="/xel/composer-instalation">Composer Installation</a>
                         </li>
                         <li>
-                            <a href="/running-app">Running Your App</a>
+                            <a href="/xel/running-app">Running Your App</a>
                         </li>
                     </ul>
                 </li>
@@ -57,10 +57,10 @@ ini_set('display_errors', 1);
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Routing</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
-                            <a href="/sidebar-pages/routing/add-route.html">Add Route</a>
+                            <a href="/xel/add-route">Add Route</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/routing/request-class.html">Request Class</a>
+                            <a href="/xel/request-class">Request Class</a>
                         </li>
                     </ul>
                 </li>
@@ -68,13 +68,13 @@ ini_set('display_errors', 1);
                     <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Databases</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu3">
                         <li>
-                            <a href="/sidebar-pages/databases/database-config.html">Database Configuration</a>
+                            <a href="/xel/database-config">Database Configuration</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/databases/connect-database.html">Connect to database</a>
+                            <a href="/xel/connect-database">Connect to database</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/databases/Xgen.html">Xgen Queries</a>
+                            <a href="/xel/database-xgen">Xgen Queries</a>
                         </li>
                     </ul>
                 </li>
@@ -82,13 +82,13 @@ ini_set('display_errors', 1);
                     <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Managing Databases</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu4">
                         <li>
-                            <a href="/sidebar-pages/manage-database/database-migrate.html">Database Migration</a>
+                            <a href="/xel/database-migration">Database Migration</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/manage-database/database-seed.html">Database Seeding</a>
+                            <a href="/xel/database-seed">Database Seeding</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/manage-database/database-command.html">Database Command</a>
+                            <a href="/xel/database-command">Database Command</a>
                         </li>
                     </ul>
                 </li>
@@ -96,10 +96,10 @@ ini_set('display_errors', 1);
                     <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Helpers</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu5">
                         <li>
-                            <a href="/sidebar-pages/helpers/array-helper.html">Array Helper</a>
+                            <a href="/xel/array-helper">Array Helper</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/helpers/cookie-helper.html">Cookie Helper</a>
+                            <a href="/xel/cookie-helper">Cookie Helper</a>
                         </li>
                     </ul>
                 </li>
@@ -107,10 +107,10 @@ ini_set('display_errors', 1);
                     <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Testing</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu6">
                         <li>
-                            <a href="/sidebar-pages/testing/database.html">Database</a>
+                            <a href="/xel/database-testing">Database</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/testing/generate-data.html">Generating Data</a>
+                            <a href="/xel/generate-data">Generating Data</a>
                         </li>
                     </ul>
                 </li>
@@ -118,21 +118,21 @@ ini_set('display_errors', 1);
                     <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Security</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu7">
                         <li>
-                            <a href="/sidebar-pages/security/auth.html">Authentication</a>
+                            <a href="/xel/auth">Authentication</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/security/encrypt.html">Encryption</a>
+                            <a href="/xel/encrypt">Encryption</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/security/hash.html">Hashing</a>
+                            <a href="/xel/hash">Hashing</a>
                         </li>
                         <li>
-                            <a href="/sidebar-pages/security/stonegem.html">StoneGem</a>
+                            <a href="/xel/stonegem">StoneGem</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/sidebar-pages/cli.html">Command Line Usage</a>
+                    <a href="/xel/command-line">Command Line Usage</a>
                 </li>
                 <li>
                     <a href="/xel-dash">Xel Dashboard</a>
