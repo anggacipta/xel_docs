@@ -22,7 +22,7 @@ include_once __DIR__ . '/../sidebar/sidebar-dash.php';
                         <div class="form-group mb-3">
                             <label>Category</label>
                             <select class="form-select" aria-label="Default select example" id="category" name="category_id">
-                                <option value="<?= $value['id']?>"><?= $value['id']?></option>
+                                <option value="<?= $value['category_id']?>"><?= $value['category_id']?></option>
                             </select>
                         </div>
 

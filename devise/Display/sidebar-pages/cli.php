@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/../../sidebar/sidebar.php';
+include_once __DIR__ . '/../sidebar/sidebar.php';
 ?>
 
 <!-- Page Content -->

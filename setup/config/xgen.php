@@ -56,7 +56,7 @@ class xgen extends xgenconf implements appXgen{
 
     public function renew(array $data, string $table, $recordId)
     {
-        return $this->update($table,$data,$recordId);
+        return $this->update($data,$table,$recordId);
         // TODO: Implement renew() method.
     }
 
