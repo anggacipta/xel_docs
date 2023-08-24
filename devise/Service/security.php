@@ -6,27 +6,16 @@ use setup\baseclass\BaseService;
 
 class security extends BaseService
 {
-    public function showAuth()
+    public function showGemstoneCSRF()
     {
-        $data = $this->connect()->showByCondition('documentation', 'title', 'Auth');
-        $this->render('sidebar-pages/security/auth', $data, 'data');
+        $data = $this->connect()->showByCondition('documentation', 'title', 'Gemstone Mechanism (CSRF) Protection');
+        $this->render('sidebar-pages/security/gemstone-csrf', $data, 'data');
     }
 
-    public function showEncrypt()
+    public function showGemstoneXSS()
     {
-        $data = $this->connect()->showByCondition('documentation', 'title', 'Encrypt');
-        $this->render('sidebar-pages/security/encrypt', $data, 'data');
+        $data = $this->connect()->showByCondition('documentation', 'title', 'Gemstone Request Handler (XSS protection Build-in)');
+        $this->render('sidebar-pages/security/gemstone-xss', $data, 'data');
     }
 
-    public function showHash()
-    {
-        $data = $this->connect()->showByCondition('documentation', 'title', 'Hash');
-        $this->render('sidebar-pages/security/hash', $data, 'data');
-    }
-
-    public function showStonegem()
-    {
-        $data = $this->connect()->showByCondition('documentation', 'title', 'Stonegems');
-        $this->render('sidebar-pages/security/stonegem', $data, 'data');
-    }
 }

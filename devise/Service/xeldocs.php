@@ -7,7 +7,8 @@ use setup\baseclass\BaseService;
 class xeldocs extends BaseService
 {
     public function xeltest() {
-        $this->render('xel');
+        $data = $this->connect()->showByCondition('documentation', 'title', 'Alpha 0.5');
+        $this->render('xel', $data, 'data');
     }
 
     public function xeldash() {
@@ -27,7 +28,7 @@ class xeldocs extends BaseService
             'category_id' => $_POST['category_id'],
         ];
 
-        $this->connect()->insert($data, 'documentation');
+        $this->connect()->insert('documentation', $data);
         header('Location:/xel-dash');
     }
 
@@ -66,7 +67,7 @@ class xeldocs extends BaseService
             'name' => $_POST['categories'],
         ];
 
-        $this->connect()->insert($data, 'categories');
+        $this->connect()->insert('categories', $data);
         header('Location:/xel-dash/categories');
     }
 

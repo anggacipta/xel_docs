@@ -6,22 +6,22 @@ use setup\baseclass\BaseService;
 
 class database extends BaseService
 {
-    public function showConnectDatabase()
+    public function showSetupDatabase()
     {
-        $data = $this->connect()->showByCondition('documentation', 'title', 'Connect Database');
-        $this->render('sidebar-pages/databases/connect-database', $data, 'data');
+        $data = $this->connect()->showByCondition('documentation', 'title', 'Setup Database');
+        $this->render('sidebar-pages/databases/setup-database', $data, 'data');
     }
 
-    public function showDatabaseConfig()
+    public function showFutureDBMS()
     {
-        $data = $this->connect()->showByCondition('documentation', 'title', 'Database Config');
-        $this->render('sidebar-pages/databases/database-config', $data, 'data');
+        $data = $this->connect()->showByCondition('documentation', 'title', 'Future DBMS');
+        $this->render('sidebar-pages/databases/future-dbms', $data, 'data');
     }
 
-    public function showXgen()
+    public function showXgenQuery()
     {
-        $data = $this->connect()->showByCondition('documentation', 'title', 'Xgen');
-        $this->render('sidebar-pages/databases/xgen', $data, 'data');
+        $data = $this->connect()->showByCondition('documentation', 'title', 'Xgen Query Builder');
+        $this->render('sidebar-pages/databases/xgen-builder', $data, 'data');
     }
 
 }

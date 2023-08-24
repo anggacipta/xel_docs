@@ -15,6 +15,9 @@ ini_set('display_errors', 1);
 </head>
 
 <body class="main">
+    <div class="d-flex flex-row flex-row-reverse">
+        <a href="/xel" class="text-capitalize text-decoration-none mx-3 my-3 fs-5 btn btn-outline-dark">Documentation</a>
+    </div>
     <section id="hero" class="d-flex align-items-center">
         <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
             <div class="row justify-content-center">

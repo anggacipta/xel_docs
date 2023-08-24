@@ -222,4 +222,101 @@ class xgenconf{
         }
     }
 
+    protected function createNewUser(array $data){
+        try {
+            $conn = $this->connection();
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Set PDO attribute to use unbuffered queries
+            $conn->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+
+            $fields = array_keys($data);
+            $placeholders = ":" . implode(", :", $fields);
+
+            $sql = "INSERT INTO users (" . implode(", ", $fields) . ") VALUES (" . $placeholders . ")";
+            $stmt = $conn->prepare($sql);
+
+            // Bind each value from the $data array to the corresponding placeholder in the SQL statement
+            foreach ($data as $field => $value) {
+                $stmt->bindValue(":$field", $value);
+            }
+            $stmt->execute();
+            echo "query success";
+        } catch (\PDOException $exception) {
+            echo "query error: " . $exception->getMessage();
+        }
+    }
+
+    protected function checkUser($username)
+    {
+        try {
+            $conn = $this->connection();
+            $conn->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+            $stmt = $conn->prepare("SELECT * FROM users where username = :value");
+            $stmt->bindValue(':value', $username);
+            $stmt->execute();
+
+            $resultCheck = '';
+            if($stmt->rowCount() > 0) {
+                $resultCheck = false;
+            }
+            else {
+                $resultCheck = true;
+            }
+
+            return $resultCheck;
+        } catch (\PDOException $exception) {
+            echo "querry error :" . $exception->getMessage();
+        }
+    }
+
+    protected function loginUser($username, $password)
+    {
+        try {
+            $conn = $this->connection();
+            $conn->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+            $stmt = $conn->prepare("SELECT password FROM users where username = :value");
+            $stmt->bindValue(':value', $username);
+            $stmt->execute();
+
+           if ($stmt->rowCount() == 0)
+           {
+               $stmt = null;
+               header('Location:/xel/admin/login?error=usernotfound');
+               exit();
+           }
+
+           $hashpwd = $stmt->fetchAll(PDO::FETCH_ASSOC);
+           $check_password = password_verify($password, $hashpwd[0]['password']);
+
+           if ($check_password == false)
+           {
+               $stmt = null;
+               header('Location:/xel/admin/login?error=wrongpassword');
+               exit();
+           } elseif ($check_password == true) {
+               $conn = $this->connection();
+               $conn->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+               $stmt = $conn->prepare("SELECT * FROM users where username = :value");
+               $stmt->bindValue(':value', $username);
+               $stmt->execute();
+
+//               if ($stmt->rowCount() == 0)
+//               {
+//                   $stmt = null;
+//                   header('Location:/xel/admin/login?error=usernotfound');
+//                   exit();
+//               }
+
+               $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+               $stmt = null;
+           }
+           $stmt = null;
+
+        } catch (\PDOException $exception) {
+            echo "querry error :" . $exception->getMessage();
+        }
+    }
+
 }

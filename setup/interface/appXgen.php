@@ -18,4 +18,7 @@ interface appXgen {
     public function renewCategories(array $data, string $table, $recordId);
     public function destroy(string $table, int $id);
     public function destroyCategories(string $table, int $id);
+    public function setNewUser(array $data);
+    public function checkingUser($user);
+    public function login($username, $pwd);
 }
