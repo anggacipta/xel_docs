@@ -11,7 +11,7 @@ use PhpParser\Node\Scalar;
 use PhpParser\Node\Stmt;
 
 /**
- * This class defines helpers used in the implementation of builders. Don't use it directly.
+ * This class defines utility-class used in the implementation of builders. Don't use it directly.
  *
  * @internal
  */

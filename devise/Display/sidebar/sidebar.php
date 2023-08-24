@@ -29,113 +29,96 @@ ini_set('display_errors', 1);
             <h1><img src="<?=asset("/images/logo.png");?>" alt="xel" id="logo" /><a href="/xel" class="logo">Xel</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Welcome to Xel</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="/xel/welcome">Welcome to Xel Alpha 0.5</a>
-                        </li>
-                        <li>
-                            <a href="/xel/server-req">Server Requirement</a>
-                        </li>
-                        <li>
-                            <a href="/xel/credits">Credit</a>
-                        </li>
-                    </ul>
+                    <a href="/xel">Welcome to Xel</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Installation</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu1">
                         <li>
-                            <a href="/xel/composer-instalation">Composer Installation</a>
+                            <a href="/xel/app-server">App Server</a>
                         </li>
                         <li>
-                            <a href="/xel/running-app">Running Your App</a>
+                            <a href="/xel/apache-server">Apache Server</a>
+                        </li>
+                        <li>
+                            <a href="/xel/composer">Composer</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Routing</a>
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">BSD</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
-                            <a href="/xel/add-route">Add Route</a>
+                            <a href="/xel/basedata">Basedata</a>
                         </li>
                         <li>
-                            <a href="/xel/request-class">Request Class</a>
+                            <a href="/xel/service">Service</a>
+                        </li>
+                        <li>
+                            <a href="/xel/display">Display</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Databases</a>
+                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Routing</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu3">
                         <li>
-                            <a href="/xel/database-config">Database Configuration</a>
+                            <a href="/xel/overview">Routing Overview</a>
                         </li>
                         <li>
-                            <a href="/xel/connect-database">Connect to database</a>
+                            <a href="/xel/router-gemstone">Router Gemstone</a>
                         </li>
                         <li>
-                            <a href="/xel/database-xgen">Xgen Queries</a>
+                            <a href="/xel/router-middleware">Middleware</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Managing Databases</a>
+                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Security</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu4">
                         <li>
-                            <a href="/xel/database-migration">Database Migration</a>
+                            <a href="/xel/gemstone-xss">Gemstone XSS Protection</a>
                         </li>
                         <li>
-                            <a href="/xel/database-seed">Database Seeding</a>
-                        </li>
-                        <li>
-                            <a href="/xel/database-command">Database Command</a>
+                            <a href="/xel/gemstone-csrf">Gemstone CSRF Protection</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Helpers</a>
+                    <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Database</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu5">
                         <li>
-                            <a href="/xel/array-helper">Array Helper</a>
+                            <a href="/xel/setup-database">Setup Database</a>
                         </li>
                         <li>
-                            <a href="/xel/cookie-helper">Cookie Helper</a>
+                            <a href="/xel/future-dbms">Future DBMS</a>
+                        </li>
+                        <li>
+                            <a href="/xel/xgen-query">Xgen Query Builder</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Testing</a>
+                    <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">File Storage</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu6">
                         <li>
-                            <a href="/xel/database-testing">Database</a>
-                        </li>
-                        <li>
-                            <a href="/xel/generate-data">Generating Data</a>
+                            <a href="/xel/file-storage">File Storage Processing</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Security</a>
+                    <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Utility Class</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu7">
                         <li>
-                            <a href="/xel/auth">Authentication</a>
-                        </li>
-                        <li>
-                            <a href="/xel/encrypt">Encryption</a>
-                        </li>
-                        <li>
-                            <a href="/xel/hash">Hashing</a>
-                        </li>
-                        <li>
-                            <a href="/xel/stonegem">StoneGem</a>
+                            <a href="/xel/helper">Helper</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="/xel/command-line">Command Line Usage</a>
+                    <a href="/xel/unit-testing">PHPUnit Test Integration</a>
                 </li>
                 <li>
-                    <a href="/xel-dash">Xel Dashboard</a>
+                    <a href="">Xel Dependency Collection(coming soon)</a>
                 </li>
             </ul>
 

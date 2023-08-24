@@ -42,7 +42,7 @@ ini_set('display_errors', 1);
                     <a href="/xel-dash/create/categories">Add Categories</a>
                 </li>
                 <li>
-                    <a href="/xel">Xel Documentations</a>
+                    <a href="/xel/admin/logout">Logout</a>
                 </li>
             </ul>
 

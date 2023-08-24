@@ -26,9 +26,23 @@ $router->get('/xel-dash/edit/categories/{id}',  xeldocs::class, 'editCategories'
 $router->post('/xel-dash/update/categories/{id}',  xeldocs::class, 'updateCategories');
 $router->post('/xel-dash/delete/categories/{id}', xeldocs::class, 'deleteCategories');
 
-//composerInstallation
-$router->get('/xel/composer-instalation',  composerinstall::class, 'showInstalation');
-$router->get('/xel/running-app',  composerinstall::class, 'showRunningApp');
+//auth
+$router->get('/xel/admin/login', authcontroller::class, 'getLogin');
+$router->get('/xel/admin/register', authcontroller::class, 'getRegister');
+$router->get('/xel/admin/testing', authcontroller::class, 'testingUid');
+$router->get('/xel/admin/logout', authcontroller::class, 'logout');
+$router->post('/xel/admin/post-register', authcontroller::class, 'setNewUser');
+$router->post('/xel/admin/post-login', authcontroller::class, 'loginXel');
+
+//bsd
+$router->get('/xel/basedata',  bsd::class, 'showBasedata');
+$router->get('/xel/service',  bsd::class, 'showService');
+$router->get('/xel/display',  bsd::class, 'showDisplay');
+
+//Instalation
+$router->get('/xel/app-server',  instalation::class, 'showAppServer');
+$router->get('/xel/apache-server',  instalation::class, 'showApacheServer');
+$router->get('/xel/composer',  instalation::class, 'showComposer');
 
 //welcome
 $router->get('/xel/credits',  welcome::class, 'showCredit');
@@ -36,26 +50,21 @@ $router->get('/xel/server-req',  welcome::class, 'showServerReq');
 $router->get('/xel/welcome',  welcome::class, 'showWelcome');
 
 //routing
-$router->get('/xel/add-route',  routing::class, 'showAddRoute');
-$router->get('/xel/request-class',  routing::class, 'showRequestClass');
+$router->get('/xel/overview',  routing::class, 'showOverview');
+$router->get('/xel/router-gemstone',  routing::class, 'showRouterGemstone');
+$router->get('/xel/router-middleware',  routing::class, 'showMiddleware');
+
+//security
+$router->get('/xel/gemstone-csrf',  security::class, 'showGemstoneCSRF');
+$router->get('/xel/gemstone-xss',  security::class, 'showGemstoneXSS');
 
 //database
-$router->get('/xel/connect-database',  database::class, 'showConnectDatabase');
-$router->get('/xel/database-config',  database::class, 'showDatabaseConfig');
-$router->get('/xel/database-xgen',  database::class, 'showXgen');
+$router->get('/xel/setup-database',  database::class, 'showSetupDatabase');
+$router->get('/xel/future-dbms',  database::class, 'showFutureDBMS');
+$router->get('/xel/xgen-query',  database::class, 'showXgenQuery');
 
-//manage-database
-$router->get('/xel/database-command',  managedatabase::class, 'showDatabaseCommand');
-$router->get('/xel/database-migration',  managedatabase::class, 'showDatabaseMigration');
-$router->get('/xel/database-seed',  managedatabase::class, 'showDatabaseSeed');
-
-//helpers
-$router->get('/xel/array-helper',  helpers::class, 'showArrayHelper');
-$router->get('/xel/cookie-helper',  helpers::class, 'showCookieHelper');
-
-//testing
-$router->get('/xel/database-testing',  testingservice::class, 'showDatabaseTesting');
-$router->get('/xel/generate-data',  testingservice::class, 'showGenerateData');
+//utility-class
+$router->get('/xel/helper',  utility::class, 'showHelper');
 
 //stonegem
 $router->get('/xel/auth',  security::class, 'showAuth');
@@ -63,8 +72,11 @@ $router->get('/xel/encrypt',  security::class, 'showEncrypt');
 $router->get('/xel/hash',  security::class, 'showHash');
 $router->get('/xel/stonegem',  security::class, 'showStonegem');
 
-//commandline
-$router->get('/xel/command-line',  commandline::class, 'showCommandLine');
+//filestorage
+$router->get('/xel/file-storage',  filestorage::class, 'showFileStorage');
+
+//unit-testing
+$router->get('/xel/unit-testing',  unittesting::class, 'showUnitTesting');
 
 $router->exec();
 

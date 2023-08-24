@@ -104,4 +104,27 @@ class xgen extends xgenconf implements appXgen{
         return $this->insertdata($table, $data);
         // TODO: Implement insert() method.
     }
+
+    /**
+     * @param array $data
+     * @param string $table
+     * @return mixed
+     */
+    public function setNewUser(array $data)
+    {
+        return $this->createNewUser($data);
+        // TODO: Implement insert() method.
+    }
+
+    public function checkingUser($user)
+    {
+        return $this->checkUser($user);
+        // TODO: Implement checkingUser() method.
+    }
+
+    public function login($username, $pwd)
+    {
+        return $this->loginUser($username, $pwd);
+        // TODO: Implement login() method.
+    }
 }
